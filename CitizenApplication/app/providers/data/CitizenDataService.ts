@@ -26,9 +26,9 @@ export class CitizenDataService implements CitizenDataServiceInterface {
 	private storageApi: PersistentDataProvider;/*TODO initialize*/
 	private cache: CitizenDataCache = new CitizenDataCache;
 	
-	constructor(restApi: RestApiProvider, storageApi: PersistentDataProvider) {
+	constructor(restApi: RestApiProvider, storageApi: PersistentDataProvider, http: Http) {
 		if (!restApi) {
-			this.restApi = new RestApiProvider();
+			this.restApi = new RestApiProvider(http);
 		} else {
 			this.restApi = restApi;
 		}
